@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const User = require('./models/users');
+const path = require('path');
 
 //initializing app
 const app = express();
