@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const User = require('./models/users');
-const path = require('path');
 
 //initializing app
 const app = express();
@@ -59,13 +58,6 @@ app.delete('/deleteUser/:id', async (req, res) => {
   const deletedUser = await User.findByIdAndDelete(id);
   res.json(deletedUser);
 })
-
-// Serve React build files
-app.use(express.static(path.join(__dirname, "../client/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
 
 //assigning a port for app
 const PORT = process.env.PORT || 3001;
