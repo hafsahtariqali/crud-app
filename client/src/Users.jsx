@@ -6,13 +6,13 @@ function Users () {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/')
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/`)
     .then(result => setUsers(result.data))
     .catch(err => console.log(err));
   }, [])
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3001/deleteUser/'+id)
+    axios.delete(`${import.meta.env.VITE_BACKEND_URL}/deleteUser/${id}`)
     .then(res => {
       console.log(res.data.message);
       window.location.reload() 

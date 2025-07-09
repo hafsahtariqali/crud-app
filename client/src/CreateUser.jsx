@@ -11,7 +11,7 @@ function CreateUser () {
 
   const Submit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/createUser', {name, email, age})
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/createUser`, {name, email, age})
     .then(res => {alert(res.data.message);
       setName("");
       setEmail("");
